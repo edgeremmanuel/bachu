@@ -2,6 +2,7 @@
  const addButtonEl = document.getElementById("add-button")
 
  addButtonEl.addEventListener("click", function(){
-    console.log(inputFlield)
+   let inputValue = inputFieldEl.value
+    console.log(inputFlieldEl.value)
  })
  
