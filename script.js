@@ -21,7 +21,30 @@ const inputFieldEl = document.getElementById("input-field")
 
      push(shoppinglistInDB, inputValue)
 
-     inputFieldEl.value = ""
-    shoppinglistEl.innerHTML += '<li>${inputValue}</li>'
+     clearInputFieldEl()
+
+     appendItemToshoppinglistEl(inputValue)
+
  })
+
+function clearInputFieldEl(){
+  inputFieldEl.value =""
+}
+
+function appendItemToshoppinglistEl(itemValue){
+  shoppinglistEl.innerHTML += '<li>${inputValue}</li>' 
+}
+ 
+let Users = {
+  "00": "bebana@yahoo.com",
+  "01": "nabana@yahoo.com",
+  "02": "vamal@yahoo.com",
+}
+let UsersEmails = Object.values(Users)
+let UsersIDs = Object.keys(Users)
+let UsersEntries = Object.entries(Users)
+
+
+
+
  
