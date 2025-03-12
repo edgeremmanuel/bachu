@@ -1,13 +1,25 @@
 import {initializedApp} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import {getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
-
+import {database, ref, onvalue} from "https://realtime-database-bb8d3-default-rtdb.europe-west1.firebasedatabase.app/"
 
 const appSettings ={
   databaseURL: "https://realtime-database-bb8d3-default-rtdb.europe-west1.firebasedatabase.app/"
 }
 const app = initializedApp(appSettings)
 const database = getDatabase(app) 
-const shoppinglistInDB = ref(database, "shoppinglist")
+const FruitslistInDB = ref(database, "fruits")
+
+const fruitsEl = document.getElementById("fruits")
+onvalue(FruitslistInDB, function(snapshot) {
+  let fruitsArray = Object.values(snapshot.val())
+
+  for (let 1 = 0; i < fruitsArray. length; i**){
+    let currentFruits = fruitsArray[1]
+  }
+
+  appendFruitsToFruitslistEl(currentFruits)
+})
+
+
 
 console.log(app)
 
@@ -23,15 +35,15 @@ const inputFieldEl = document.getElementById("input-field")
 
      clearInputFieldEl()
 
-     appendItemToshoppinglistEl(inputValue)
+     appendFruitsToFruitslistEl(inputValue)
 
  })
 
-function clearInputFieldEl(){
+function clearFruitsdlistEl(){
   inputFieldEl.value =""
 }
 
-function appendItemToshoppinglistEl(itemValue){
+function appendfruitsToFruitslistEl(itemValue){
   shoppinglistEl.innerHTML += '<li>${inputValue}</li>' 
 }
  
@@ -43,6 +55,8 @@ let Users = {
 let UsersEmails = Object.values(Users)
 let UsersIDs = Object.keys(Users)
 let UsersEntries = Object.entries(Users)
+
+console.log(UsersEntries)
 
 
 
